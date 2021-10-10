@@ -1,0 +1,18 @@
+# intellij configs
+*/.idea/*
+.idea/*
+*.exe
+*.orig
+
+# Visual Studio configs
+.vs/*
+
+# c# stuff
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+# User Preferences
+*.user
