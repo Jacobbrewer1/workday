@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: 
+    - master
+    - feature/*
+  pull_request:
+    branches: 
+    - master
+    - feature/*
+
+jobs:
+  build:
+
+    runs-on: [windows-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1
+      
+    - name: setup NuGet.exe
+      uses: NuGet/setup-nuget@v1.0.5
+      
+    - name: restore NuGet
+      run: nuget restore workdayCalculator.sln
+      
+    - name: Build
+      run: msbuild workdayCalculator.sln /p:Configuration=Release
